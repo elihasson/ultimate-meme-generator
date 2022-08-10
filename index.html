@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="MemGen" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="main-layout">
+    <!-- <div class="main-screen full" onclick="toggleMenu()"></div> -->
+    <div class="main-screen full"></div>
+    <!-- <button onclick="toggleMenu()" class="menu-toggle">☰</button> -->
+    <header class="main-header-container main-layout">
+        <div class="main-header main-layout flex align-center flex space-between">
+            <div class="main-logo logo">MemGen</div>
+            <nav class="main-nav">
+                <ul class="main-nav-list flex clean-list">
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Memes</a></li>
+                    <li><a href="#">about</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="grid-container">
+        <div class="card">card</div>
+        <div class="card">card</div>
+        <div class="card">card</div>
+        <div class="card">card</div>
+        <div class="card">card</div>
+        <div class="card">card</div>
+        <div class="card">card</div>
+        <div class="card">card</div>
+        <div class="card">card</div>
+        <div class="card ">card</div>
+        <div class="card ">card</div>
+        <div class="card ">card</div>
+        <div class="card ">card</div>
+        <div class="card ">card</div>
+        <div class="card ">card</div>
+        <div class="card ">card</div>
+        <div class="card ">card</div>
+        <div class="card ">card</div>
+    </div>
+
+    <main class="main-content">
+        <div class="gallery-layout">
+            <div class="search-box">
+                <label data-trans="searc-meme">Search by keyword: </label>
+                <input data-trans="filter-meme-by-keyword" type="text" class="filter-name-search"
+                    placeholder="enter keyword" />
+                <!-- oninput="this.title=this.value;onSetFilterBy({name: this.value})" /> -->
+                <button data-trans="search-btn" class="search-meme">Search</button>
+            </div>
+            <div class="grid-container">
+                <div class="card">
+                    <img src="/img/001.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/002.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/003.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/004.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/005.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/006.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/007.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/008.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/009.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/010.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/011.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/012.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/013.jpg" alt="" class="card-image">
+                </div>
+                <div class="card">
+                    <img src="/img/014.jpg" alt="" class="card-image">
+                </div>
+            </div>
+        </div>
+        <div class="canvas-container">
+            <div class="main-layout flex align-center space-between">
+                <div class="canvas-container flex align-center">
+                    <canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
+                </div>
+                <div class="user-preferences flex align-center space-between">
+                    <div class="text-on-canvas">
+                        <input data-trans="add-text" type="text" class="add-text" placeholder="your text here" />
+                        <input class="color-set" type="color" name="chosen-color-1" />
+                        <button class="btn btn-swich-text" onclick="clearCanvas()">switch</button>
+                        <button class="btn btn-text-up" onclick="clearCanvas()">up</button>
+                        <button class="btn btn-add-text" onclick="clearCanvas()">add</button>
+                        <button class="btn btn-remove-text" onclick="clearCanvas()">remove</button>
+                    </div>
+                    <div class="font-butons-area">
+                        <div class="font-align-and-size">
+                            <button class="btn btn-font-grow" onclick="clearCanvas()">A+</button>
+                            <button class="btn btn-font-srink" onclick="clearCanvas()">A-</button>
+                            <button class="btn btn-align-left" onclick="clearCanvas()">left</button>
+                            <button class="btn btn-align-center" onclick="clearCanvas()">center</button>
+                            <button class="btn btn-align-right" onclick="clearCanvas()">right</button>
+                        </div>
+                        <div class="font-style-area">
+                            <select name="font-selector" class="font-selector" onchange="setFont(this.value)">
+                                <option value="Impact">Impact</option>
+                            </select>
+                            <input class="color-set stroke-color" type="color" name="stroke-color" />
+                            <input class="color-set font-color" type="color" name="font-color" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <footer class="main-footer main-layout align-center space-between flex full">
+        <div class="footer-logo logo">MemeGen</div>
+        <div class="allrights">
+            <small>© All Rights Reserved</small>
+        </div>
+        <div class="social-profiles-container">
+            <div class="link-box facebook">
+                <!-- <img src="/img/facebook.png" alt="" class="social-link facebook"> -->
+            </div>
+        </div>
+
+    </footer>
+    <script src="js/main.js"></script>
+    <!-- <script>
+            function toggleMenu() {
+                // console.log('hi')
+                document.body.classList.toggle('menu-open');
+            }
+        </script> -->
+</body>
+
+</html>
