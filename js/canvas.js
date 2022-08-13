@@ -237,6 +237,13 @@ function downloadMeme() {
 }
 
 function shareToFacebook() {
+    // debugger
+    // document.querySelector('.upload-area').remove('display-none')
+    // gCanvasArea.classList.add('display-none')
+    // uploadImg()
+    // document.querySelector('.upload-area').add('display-none')
+    // gCanvasArea.classList.remove('display-none')
+
     console.log('share')
 }
 

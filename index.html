@@ -15,7 +15,7 @@
     <header class="main-header-container main-layout">
         <div class="main-header main-layout flex align-center space-between">
             <div class="main-logo">
-                <img class="logo" src="/logo/LOGO.png">
+                <img class="logo" src="logo/LOGO.png">
             </div>
             <nav class="main-nav">
                 <ul class="main-nav-list flex clean-list">
@@ -32,7 +32,7 @@
             <div class="search-box main-layout flex align-center space-between">
                 <!-- <label data-trans="search-meme">Search: </label> -->
                 <input data-trans="filter-meme-by-keyword" type="text" class="filter-meme-search"
-                    placeholder=" Search"/>
+                    placeholder=" Search" />
                 <!-- <button data-trans="search-btn" class="search-meme" onclick="searchMeme()">Search</button> -->
             </div>
             <div class="grid-container">
@@ -52,14 +52,15 @@
             </div>
             <div class="control-box flex space-between">
                 <div class="text-manipulation-buttons flex align center space-between">
-                    <label class="edit-label" >Edit Text Lines</label>
-                    <ul class="edit-list-1 flex clean-list"  >
+                    <label class="edit-label">Edit Text Lines</label>
+                    <ul class="edit-list-1 flex clean-list">
                         <li><a class="a-text-down" onclick="moveLine(1)">&#8595;</a></li>
                         <li><a class="a-text-up" onclick="moveLine(-1)">&#8593;</a></li>
                         <li><a class="a-swich-line" onclick="switchLine()"><img src="btnsImg/switch.png" /></a></li>
                         <li><a class="a-add-text" onclick="addLine()"><img src="btnsImg/add.png" /></a></li>
-                        <li><a class="a-remove-text" onclick="deleteTextLine()"><img src="btnsImg/delete.png" /></a></li>
-                        
+                        <li><a class="a-remove-text" onclick="deleteTextLine()"><img src="btnsImg/delete.png" /></a>
+                        </li>
+
                     </ul>
                 </div>
                 <div class="textbox-input flex align center space-between">
@@ -73,34 +74,47 @@
                         <ul class="edit-list-2 flex clean-list">
                             <li><a class="a-font-srink fa fontsize" onclick="setFontSize(-1)"></a>-</li>
                             <li><a class="a-font-grow fa fontsize" onclick="setFontSize(1)"></a>+</li>
-                            
+
                             <li><a class="seperator fa pipe"></a></li>
-                            
+
                             <li><a class="a-align-left fa align-left" onclick="alignText('left')"></a></li>
                             <!-- <li><a class="a-align-center" onclick="alignText('center')"><img src="btnsImg/alignCenter.png" /></a></li> -->
                             <li><a class="a-align-center fa align-center" onclick="alignText('center')"></a></li>
                             <li><a class="a-align-right fa align-right" onclick="alignText('right')"></a></li>
-                            
+
                             <li><a class="seperator fa pipe"></a></li>
-                            
-                            <li class ="round-color"><input class="color-set stroke-color" type="color" name="stroke-color" onchange="changeStrokeColor(this.value)" /></li>
-                            <li class ="round-color"><input class="color-set font-color" type="color" name="font-color" value="#ff0000" onchange="changefontColor(this.value)"/></li>
-                            
+
+                            <li class="round-color"><input class="color-set stroke-color" type="color"
+                                    name="stroke-color" onchange="changeStrokeColor(this.value)" /></li>
+                            <li class="round-color"><input class="color-set font-color" type="color" name="font-color"
+                                    value="#ff0000" onchange="changefontColor(this.value)" /></li>
+
                         </ul>
                     </div>
                     <div class="text-on-canvas">
-                        <input data-trans="add-text" type="text" class="add-text" placeholder="your text here" onchange="drawText(this.value)"/>
+                        <input data-trans="add-text" type="text" class="add-text" placeholder="your text here"
+                            onchange="drawText(this.value)" />
                         <!-- <input class="color-set" type="color" name="chosen-color-1" /> -->
                     </div>
                 </div>
                 <div class="icons-container"></div>
                 <div class="meme-creation-area flex  ">
-                    <button class="btn btn-share" onclick="uploadImg()">share</button>
+                    <button class="btn btn-share" onclick="shareToFacebook()">share</button>
                     <button class="btn btn-download" onclick="downloadMeme()">download</button>
                     <button class="btn btn-save" onclick="saveMeme()">save</button>
                 </div>
             </div>
         </div>
+        <!-- <div class="upload-area">
+            <h1>Upload and Share</h1>
+            <div class="inputs">
+                <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+
+                <button class="btn" onclick="uploadImg()">Upload Image from Canvas</button>
+                <p class="user-msg"></p>
+                <div class="share-container"></div>
+            </div>
+        </div> -->
     </main>
 
     <footer class="main-footer main-layout align-center space-between flex full">
@@ -114,7 +128,7 @@
         </div>
 
     </footer>
-    
+
     </script>
     <script src="js/services/util.service.js"></script>
     <script src="js/services/storage.service.js"></script>
@@ -124,12 +138,14 @@
     <script src="js/main.js"></script>
     <script src="js/services/upload-service.js"></script>
 
-    <script>
+    <!-- <script>
+        
             function toggleMenu() {
                 // console.log('hi')
                 document.body.classList.toggle('menu-toggle');
             }
-        </script>
+            
+        </script> -->
 </body>
 
 </html>
