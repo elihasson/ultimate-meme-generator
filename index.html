@@ -9,133 +9,101 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="main-layout">
-    <!-- <div class="main-screen full" onclick="toggleMenu()"></div> -->
-    <div class="main-screen full"></div>
-    <!-- <button onclick="toggleMenu()" class="menu-toggle">☰</button> -->
+<body class="main-layout" onload="init()" onkeyup="handleKeyEvent(event)">
+    <div class="main-screen full" onclick="toggleMenu()"></div>
+    <button onclick="toggleMenu()" class="menu-toggle">☰</button>
     <header class="main-header-container main-layout">
-        <div class="main-header main-layout flex align-center flex space-between">
-            <div class="main-logo logo">MemGen</div>
+        <div class="main-header main-layout flex align-center space-between">
+            <div class="main-logo">
+                <img class="logo" src="/logo/LOGO.png">
+            </div>
             <nav class="main-nav">
                 <ul class="main-nav-list flex clean-list">
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Memes</a></li>
-                    <li><a href="#">about</a></li>
+                    <li><a href="#" onclick="displayMemes()">Memes</a></li>
+                    <li><a href="#" onclick="displayGallery()">Gallery</a></li>
+                    <!-- <li><a href="#" onclick="displayCanvas()">Memes</a></li> -->
+                    <li><a href="#">About</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <div class="grid-container">
-        <div class="card">card</div>
-        <div class="card">card</div>
-        <div class="card">card</div>
-        <div class="card">card</div>
-        <div class="card">card</div>
-        <div class="card">card</div>
-        <div class="card">card</div>
-        <div class="card">card</div>
-        <div class="card">card</div>
-        <div class="card ">card</div>
-        <div class="card ">card</div>
-        <div class="card ">card</div>
-        <div class="card ">card</div>
-        <div class="card ">card</div>
-        <div class="card ">card</div>
-        <div class="card ">card</div>
-        <div class="card ">card</div>
-        <div class="card ">card</div>
-    </div>
-
     <main class="main-content">
         <div class="gallery-layout">
-            <div class="search-box">
-                <label data-trans="searc-meme">Search by keyword: </label>
-                <input data-trans="filter-meme-by-keyword" type="text" class="filter-name-search"
-                    placeholder="enter keyword" />
-                <!-- oninput="this.title=this.value;onSetFilterBy({name: this.value})" /> -->
-                <button data-trans="search-btn" class="search-meme">Search</button>
+            <div class="search-box main-layout flex align-center space-between">
+                <!-- <label data-trans="search-meme">Search: </label> -->
+                <input data-trans="filter-meme-by-keyword" type="text" class="filter-meme-search"
+                    placeholder=" Search"/>
+                <!-- <button data-trans="search-btn" class="search-meme" onclick="searchMeme()">Search</button> -->
             </div>
             <div class="grid-container">
-                <div class="card">
-                    <img src="/img/001.jpg" alt="" class="card-image">
+            </div>
+        </div>
+        <div class="canvas-area main-layout flex ">
+            <div class="canvas-container flex ">
+                <div class="back">
+                    <a class="back-to-gallery fa arrowleft" href="#" onclick="displayGallery()">Back to Gallery</a>
                 </div>
-                <div class="card">
-                    <img src="/img/002.jpg" alt="" class="card-image">
+                <!-- <canvas id="main-canvas" height="600" width="600" onclick="draw(event)"></canvas> -->
+                <!-- <canvas id="main-canvas" height="600" width="600"></canvas> -->
+                <canvas id="main-canvas" class="main-canvas" height="" width=""></canvas>
+                <!-- <div class="drag-box drag1 absolute" onclick="chooseLine(this)" ></div> -->
+                <!-- <div class="drag-box drag2 absolute" style="background:yellow; left: 10px; top:10px; width: 400px; height: 40px;"></div> -->
+                <!-- <div class="drag-box drag3 absolute" style="background:yellow; left: 10px; top:10px; width: 400px; height: 40px;"></div> -->
+            </div>
+            <div class="control-box flex space-between">
+                <div class="text-manipulation-buttons flex align center space-between">
+                    <label class="edit-label" >Edit Text Lines</label>
+                    <ul class="edit-list-1 flex clean-list"  >
+                        <li><a class="a-text-down" onclick="moveLine(1)">&#8595;</a></li>
+                        <li><a class="a-text-up" onclick="moveLine(-1)">&#8593;</a></li>
+                        <li><a class="a-swich-line" onclick="switchLine()"><img src="btnsImg/switch.png" /></a></li>
+                        <li><a class="a-add-text" onclick="addLine()"><img src="btnsImg/add.png" /></a></li>
+                        <li><a class="a-remove-text" onclick="deleteTextLine()"><img src="btnsImg/delete.png" /></a></li>
+                        
+                    </ul>
                 </div>
-                <div class="card">
-                    <img src="/img/003.jpg" alt="" class="card-image">
+                <div class="textbox-input flex align center space-between">
+
+                    <div class="font-align-and-size flex align center space-between">
+                        <select name="font-selector" class="font-selector" onchange="setFontType(this.value)">
+                            <option value="Impact">Impact</option>
+                            <option value="sans-serif">sans-serif</option>
+                            <option value="david">david</option>
+                        </select>
+                        <ul class="edit-list-2 flex clean-list">
+                            <li><a class="a-font-srink fa fontsize" onclick="setFontSize(-1)"></a>-</li>
+                            <li><a class="a-font-grow fa fontsize" onclick="setFontSize(1)"></a>+</li>
+                            
+                            <li><a class="seperator fa pipe"></a></li>
+                            
+                            <li><a class="a-align-left fa align-left" onclick="alignText('left')"></a></li>
+                            <!-- <li><a class="a-align-center" onclick="alignText('center')"><img src="btnsImg/alignCenter.png" /></a></li> -->
+                            <li><a class="a-align-center fa align-center" onclick="alignText('center')"></a></li>
+                            <li><a class="a-align-right fa align-right" onclick="alignText('right')"></a></li>
+                            
+                            <li><a class="seperator fa pipe"></a></li>
+                            
+                            <li class ="round-color"><input class="color-set stroke-color" type="color" name="stroke-color" onchange="changeStrokeColor(this.value)" /></li>
+                            <li class ="round-color"><input class="color-set font-color" type="color" name="font-color" value="#ff0000" onchange="changefontColor(this.value)"/></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="text-on-canvas">
+                        <input data-trans="add-text" type="text" class="add-text" placeholder="your text here" onchange="drawText(this.value)"/>
+                        <!-- <input class="color-set" type="color" name="chosen-color-1" /> -->
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="/img/004.jpg" alt="" class="card-image">
-                </div>
-                <div class="card">
-                    <img src="/img/005.jpg" alt="" class="card-image">
-                </div>
-                <div class="card">
-                    <img src="/img/006.jpg" alt="" class="card-image">
-                </div>
-                <div class="card">
-                    <img src="/img/007.jpg" alt="" class="card-image">
-                </div>
-                <div class="card">
-                    <img src="/img/008.jpg" alt="" class="card-image">
-                </div>
-                <div class="card">
-                    <img src="/img/009.jpg" alt="" class="card-image">
-                </div>
-                <div class="card">
-                    <img src="/img/010.jpg" alt="" class="card-image">
-                </div>
-                <div class="card">
-                    <img src="/img/011.jpg" alt="" class="card-image">
-                </div>
-                <div class="card">
-                    <img src="/img/012.jpg" alt="" class="card-image">
-                </div>
-                <div class="card">
-                    <img src="/img/013.jpg" alt="" class="card-image">
-                </div>
-                <div class="card">
-                    <img src="/img/014.jpg" alt="" class="card-image">
+                <div class="icons-container"></div>
+                <div class="meme-creation-area flex  ">
+                    <button class="btn btn-share" onclick="uploadImg()">share</button>
+                    <button class="btn btn-download" onclick="downloadMeme()">download</button>
+                    <button class="btn btn-save" onclick="saveMeme()">save</button>
                 </div>
             </div>
         </div>
-        <div class="canvas-container">
-            <div class="main-layout flex align-center space-between">
-                <div class="canvas-container flex align-center">
-                    <canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
-                </div>
-                <div class="user-preferences flex align-center space-between">
-                    <div class="text-on-canvas">
-                        <input data-trans="add-text" type="text" class="add-text" placeholder="your text here" />
-                        <input class="color-set" type="color" name="chosen-color-1" />
-                        <button class="btn btn-swich-text" onclick="clearCanvas()">switch</button>
-                        <button class="btn btn-text-up" onclick="clearCanvas()">up</button>
-                        <button class="btn btn-add-text" onclick="clearCanvas()">add</button>
-                        <button class="btn btn-remove-text" onclick="clearCanvas()">remove</button>
-                    </div>
-                    <div class="font-butons-area">
-                        <div class="font-align-and-size">
-                            <button class="btn btn-font-grow" onclick="clearCanvas()">A+</button>
-                            <button class="btn btn-font-srink" onclick="clearCanvas()">A-</button>
-                            <button class="btn btn-align-left" onclick="clearCanvas()">left</button>
-                            <button class="btn btn-align-center" onclick="clearCanvas()">center</button>
-                            <button class="btn btn-align-right" onclick="clearCanvas()">right</button>
-                        </div>
-                        <div class="font-style-area">
-                            <select name="font-selector" class="font-selector" onchange="setFont(this.value)">
-                                <option value="Impact">Impact</option>
-                            </select>
-                            <input class="color-set stroke-color" type="color" name="stroke-color" />
-                            <input class="color-set font-color" type="color" name="font-color" />
-                        </div>
-                    </div>
-                </div>
-            </div>
     </main>
 
     <footer class="main-footer main-layout align-center space-between flex full">
-        <div class="footer-logo logo">MemeGen</div>
         <div class="allrights">
             <small>© All Rights Reserved</small>
         </div>
@@ -146,13 +114,22 @@
         </div>
 
     </footer>
+    
+    </script>
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/Memes.service.js"></script>
+    <script src="js/services/line.service.js"></script>
+    <script src="js/canvas.js"></script>
     <script src="js/main.js"></script>
-    <!-- <script>
+    <script src="js/services/upload-service.js"></script>
+
+    <script>
             function toggleMenu() {
                 // console.log('hi')
-                document.body.classList.toggle('menu-open');
+                document.body.classList.toggle('menu-toggle');
             }
-        </script> -->
+        </script>
 </body>
 
 </html>
