@@ -27,10 +27,10 @@ function addLine(){
         gSelectedMeme.lines[lineIdx] = createLineFromEditor()
         switch (lineIdx) {
             case 0:
-                gSelectedMeme.lines[lineIdx].posY = 20 + gSelectedMeme.lines[lineIdx].size /2              
+                gSelectedMeme.lines[lineIdx].posY = 10 + gSelectedMeme.lines[lineIdx].size /2              
                 break
             case 1:
-                gSelectedMeme.lines[lineIdx].posY = gElCanvas.height - 20 - gSelectedMeme.lines[lineIdx].size /2
+                gSelectedMeme.lines[lineIdx].posY = gElCanvas.height - 10 - gSelectedMeme.lines[lineIdx].size /2
                 break
             case 2:
                 gSelectedMeme.lines[lineIdx].posY = gElCanvas.height / 2
@@ -39,7 +39,6 @@ function addLine(){
     } 
     gSelLineIdx = lineIdx
     gSelectedMeme.selectedLineIdx = gSelLineIdx
-    alignText(gSelectedMeme.lines[lineIdx].align)
     renderCanvas()
 }
 
@@ -87,10 +86,10 @@ function alignText(value){
         gSelectedMeme.lines[gSelLineIdx].align = value
         switch (value) {
             case 'left':
-                gSelectedMeme.lines[gSelLineIdx].posX = 20              
+                gSelectedMeme.lines[gSelLineIdx].posX = 10              
                 break
             case 'right':
-                gSelectedMeme.lines[gSelLineIdx].posX = gElCanvas.width - 20              
+                gSelectedMeme.lines[gSelLineIdx].posX = gElCanvas.width - 10              
                 break
             case 'center':
                 gSelectedMeme.lines[gSelLineIdx].posX = gElCanvas.width / 2
@@ -192,8 +191,8 @@ function createLineFromEditor() {
         posX : 10,
         posY : 10,
         font: font,
-        size: 60,
-        align: 'center',
+        size: 40,
+        align: 'left',
         color: color,
         strokeColor: strokeColor ,
         strokeX: 10,
@@ -201,8 +200,15 @@ function createLineFromEditor() {
     }
 } 
 
+
 function renderCanvas() {
+    // drawImageMeme(gSelectedImage.dataset.imgid)
     drawMeme(gSelectedImage.id)
+    // gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)//img,x,y,xend,yend
+    // gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+    // gCtx.fillStyle = "black"
+    // gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
+    // renderLines()
 }
 
 

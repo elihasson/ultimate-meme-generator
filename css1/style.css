@@ -1,4 +1,6 @@
 /* SETUP */
+
+
 /* VARS */
 :root {
     /* orange */
@@ -11,7 +13,16 @@
     --clr4: #989898;
     /* borders  */
     --clr5: #DBDBDB;
+
+
+     /* mq variables */
+    
+   --large: 980px;
+   --medium: 860px;
+   --small: 500px;
+
 }
+
 
 /* TYPOGRAPHY */
 @font-face {
@@ -81,6 +92,7 @@ img{
 }
 
 html{
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     font-family: Roboto;
     color: var(--clr4);
     line-height: 1.25;
@@ -97,9 +109,13 @@ body{
     margin: 0 auto;
     margin-left: minmax(5px,auto);
     margin-right: minmax(5px,auto);
+    border: 1px solid #e1e0e0;
 }
 
+
 /* HELPERS */
+/* flex helper */
+
 .flex {
     display: flex;
 }
@@ -123,6 +139,7 @@ body{
     list-style-type: none;
 }
 
+/* hide element  */
 .display-none {
     display: none;
 }
@@ -130,7 +147,6 @@ body{
 .absolute {
     position: absolute;
 }
-
 /* COMPONENTS */
 
 .btn{
@@ -140,9 +156,10 @@ body{
     text-transform: uppercase;
     border-width: 0px;
     outline: none;
-    font-size: 1em;
+    font-size: 10px;
     font-weight: 500;
-    padding: 1em;
+    padding: 10px
+
 }
 
 .btn:hover {
@@ -150,11 +167,11 @@ body{
     transition: 0.6s;
 }
 
+
 /* --  header */
 .main-header-container {
     margin-bottom: 30px;
 }
-
 /*logo*/
 .main-header .main-logo{
     width: 9.5em;
@@ -172,17 +189,16 @@ body{
 
 .main-header .main-nav .main-nav-list>li{ 
     display: flex;
-}
+    /* align-items: center; */
+    /* border-inline-end: inset -1px 0 0 #1d1d1d; ; */
 
+} 
 .main-header .main-nav{
     font-family: Roboto;
 }
 
-/*canvas area*/
-.canvas-area{
-    border: 1px solid #e1e0e0;
 
-}
+/*canvas area*/
 .canvas-container {
     background-color: var(--clr3);
     width: 50%;
@@ -229,11 +245,17 @@ body{
 /* first list  */
 .control-box .text-manipulation-buttons {
     margin: 20px;
+    /* width: 486px; */
+    /* width: 84%; */
 }
 
 .control-box .text-manipulation-buttons .edit-label{
+    /* font-size: 1.4em; */
     font-size: 1.8em;
     align-content: center;
+    /* margin-right: 100px;
+    padding-right: 70px; */
+
 }
 
 .control-box .text-manipulation-buttons .edit-list-1 > li  {   
@@ -241,6 +263,7 @@ body{
     display: flex;
     align-items: center;
     cursor: pointer;
+    /* margin-inline-start: 10px; */
     margin-inline-start: 0.6em;
     justify-content: center;
     display: flex;
@@ -319,12 +342,14 @@ body{
     width: 150%;
     height: 150%;
     margin: -25%;
+    /* align-items: flex-end; */
 }
 
 .round-color {
     overflow: hidden;
     width: 1.7em;
     height: 1.7em;
+    /* optional formatting below here */
     border-radius: 50%;
     box-shadow: 1px 1px 3px 0px grey;
     margin: 2px;
@@ -336,6 +361,8 @@ body{
 
 
 .control-box .text-on-canvas .add-text{
+    /* width: 486px; */
+    /* width: 84%; */
     border: 0px solid var(--clr5) ;
     border-radius: 0 0 0.6rem 0.6rem;
     height: 66px;
@@ -350,10 +377,10 @@ body{
 .gallery-layout{
     background-color: var(--clr2);
     margin-top: 0px;
-    /* height: 100vh; */
 }
 
 .search-box{
+    /* height: 80px; */
     padding-top:  30px;
     margin-bottom: 5px;
 }
@@ -366,9 +393,11 @@ body{
     color: #989898;
     border: 1px solid var(--clr5) ;
     font-size: 1.1875em;
-}
 
+
+}
 /* grid */
+/* Images shall appear square even if they are at other aspect ratio (clipped) */
 .grid-container { 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -385,7 +414,9 @@ body{
     align-items: center;
     padding: 0px;
     border-radius: 2em;
+    /* min-height: 150px; */
 }
+
 
 .card-image {
     /* width: 100%; */
@@ -399,6 +430,9 @@ body{
     transition: 0.6s;
 }
 
+
+
+
 .meme-creation-area{
     align-items: center;
     justify-content: flex-end;
@@ -409,27 +443,9 @@ body{
 
 /* MQ */
 
+/* MOBILE ONLY  */
 /* MOBILE ONLY */
 @media (max-width: 750px) {
-     /* screen */
-     .main-screen {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity .6s;
-    }
-
-    body.menu-toggle .main-screen {
-        pointer-events: auto;
-        opacity: 1;
-        /* z-index: 1; */
-    }
-    
     body .menu-toggle{
         position: fixed;
         right: 6px;
@@ -506,16 +522,17 @@ body{
 
     .canvas-area{
         flex-direction: column;
-    }    
+    }
+    
 }
-
 /* SMAll */
 @media (min-width: 640px){
     .canvas-area{
         flex-direction: column;
     }
-}
 
+
+}
 /* MEDIUM */
 @media (min-width: 750px){
     
@@ -555,8 +572,6 @@ body{
     }
 
 }
-
-
 
 
 

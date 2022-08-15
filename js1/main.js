@@ -2,7 +2,6 @@
 var gSelectedImage = []
 var gImageElement
 var gDisplayMemes = false
-var gDisplayCanvas = false
 
 var gCanvasArea = document.querySelector('.canvas-area')
 var gGalleryLayout = document.querySelector('.gallery-layout')
@@ -13,6 +12,12 @@ function init() {
     gCanvasArea.classList.add('display-none')
     renderImages()
     gImageElement = gGalleryLayout.querySelector('.card-1')
+    gSelectedImage = getImgById(1)
+    // document.querySelector('.upload-area').add('display-none')
+
+
+    // gElCanvas = document.querySelector('#main-canvas')
+    // gCtx = gElCanvas.getContext('2d')
 }
 
 function displayGallery() {
@@ -20,16 +25,15 @@ function displayGallery() {
     gCanvasArea.classList.add('display-none')
     gGalleryLayout.classList.remove('display-none')
     gDisplayMemes = false
-    gDisplayCanvas = false  
     renderImages()
 }
+
 
 function displayMemes() {
     gSelectedMeme = null
     gCanvasArea.classList.add('display-none')
     gGalleryLayout.classList.remove('display-none')
-    gDisplayMemes = true  
-    gDisplayCanvas = false  
+    gDisplayMemes = true    
     renderImages()
 }
 
@@ -38,7 +42,6 @@ function displayCanvas() {
     gGalleryLayout.classList.add('display-none')
     initCanvas()
     spreadInCanvas(gImageElement)
-    gDisplayCanvas = true
 }
 
 function renderImages() {
@@ -66,7 +69,6 @@ function spreadInCanvas(el) {
     gGalleryLayout.classList.add('display-none')
     gCanvasArea.classList.remove('display-none')
     drawMeme(gSelectedImage.id)
-    gDisplayCanvas = true
 }
 
 // call also from button search
@@ -77,12 +79,13 @@ function searchMeme(){
 
 function handleKeyEvent(event) {
     // seach-box gallery/memes area 
-    if (!gDisplayCanvas && event.key === 'Enter'){
-        searchMeme()
-    }
+    var textToRender = gGalleryLayout.querySelector('.search-box .filter-meme-search').value
+    if (textToRender !== '' && event.key === 'Enter')
+    searchMeme()
+    
     //change line text on key evnt - canvas area
-    var textToRender = gCanvasArea.querySelector('.control-box .text-on-canvas .add-text').value
-    if (gDisplayCanvas && textToRender !== ''){
+    textToRender = gCanvasArea.querySelector('.control-box .text-on-canvas .add-text').value
+    if (textToRender !== ''){
         if (gSelectedMeme.lines.length === 0)
             gSelectedMeme.lines[gSelLineIdx] = createLine()
             
