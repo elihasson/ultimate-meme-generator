@@ -1,9 +1,7 @@
 'use strict'
 var gSelectedMeme = null
-// var gSelectedImage
 var gElCanvas
 var gCtx
-// var gCtxState = 0
 var gLine 
 var gStartPos
 var canvasTextArea = null
@@ -18,12 +16,9 @@ initCanvas()
 function initCanvas(){  
     gElCanvas = document.querySelector('#main-canvas')
     gCtx = gElCanvas.getContext('2d')
-    gCtx.save()
-    
+    gCtx.save() 
     resizeCanvas()
-    // const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
     addListeners()
-    // drawImageMeme(gSelectedImage.id)
 }
 
 function addLine(){
@@ -59,10 +54,11 @@ function switchLine(){
 }
 
 function moveLine(value) {
-    // value 1 - move down
-    // value -1 - move up
+    //  1 - move down , -1 - move up
+    if(gSelectedMeme.lines[gSelLineIdx].posY === 0 && value < 0) return
     if (gSelectedMeme.lines.length !== 0){
         gSelectedMeme.lines[gSelLineIdx].posY += value
+
         renderCanvas()
     } 
 }
@@ -125,8 +121,6 @@ function changefontColor(color){
         renderCanvas()
     }
 }
-
-
 
 function clearTextBox(){
     gCanvasArea.querySelector('.control-box .text-on-canvas .add-text').value = ''
@@ -337,5 +331,16 @@ function addTouchListeners() {
     gElCanvas.addEventListener('touchend', onUp)
 }
 
+function drawImageScaled(img, ctx) {
+    var canvas = ctx.canvas ;
+    var hRatio = canvas.width  / img.width    ;
+    var vRatio =  canvas.height / img.height  ;
+    var ratio  = Math.min ( hRatio, vRatio );
+    var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
+    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
+    ctx.clearRect(0,0,canvas.width, canvas.height);
+    ctx.drawImage(img, 0,0, img.width, img.height,
+                       centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);  
+ }
 
     

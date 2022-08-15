@@ -64,7 +64,6 @@
                     </ul>
                 </div>
                 <div class="textbox-input flex align center space-between">
-
                     <div class="font-align-and-size flex align center space-between">
                         <select name="font-selector" class="font-selector" onchange="setFontType(this.value)">
                             <option value="Impact">Impact</option>
@@ -92,8 +91,8 @@
                         </ul>
                     </div>
                     <div class="text-on-canvas">
-                        <input data-trans="add-text" type="text" class="add-text" placeholder="your text here"
-                            onchange="drawText(this.value)" />
+                        <input data-trans="add-text" type="text" class="add-text" placeholder="your text here"/>
+                            <!-- onchange="drawText(this.value)" /> -->
                         <!-- <input class="color-set" type="color" name="chosen-color-1" /> -->
                     </div>
                 </div>
@@ -138,14 +137,13 @@
     <script src="js/main.js"></script>
     <script src="js/services/upload-service.js"></script>
 
-    <!-- <script>
+    <script>
         
             function toggleMenu() {
-                // console.log('hi')
                 document.body.classList.toggle('menu-toggle');
             }
             
-        </script> -->
+        </script>
 </body>
 
 </html>

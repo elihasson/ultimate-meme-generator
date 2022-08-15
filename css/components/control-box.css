@@ -1,0 +1,147 @@
+/* control box  */
+.canvas-area .control-box {
+    flex-direction: column;
+    /* margin-top: 60px; */
+    margin: 0px 0px 0px 0px;
+    box-shadow: 1px 0px 1px #DBDBDB;
+}
+
+.control-box {
+    margin-top: 0px;
+    background-color: var(--clr2);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+/* first list  */
+.control-box .text-manipulation-buttons {
+    margin: 20px;
+    /* width: 486px; */
+    /* width: 84%; */
+}
+
+.control-box .text-manipulation-buttons .edit-label {
+    font-size: 1.4em;
+    align-content: center;
+    /* margin-right: 100px;
+    padding-right: 70px; */
+
+}
+
+.control-box .text-manipulation-buttons .edit-list-1>li {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    /* margin-inline-start: 10px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+     */
+}
+
+.control-box .text-manipulation-buttons .edit-list-1 a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    width: 30%;
+}
+
+
+/* list 2  */
+.control-box .textbox-input {
+    flex-direction: column;
+    border-radius: 0.6rem 0.6rem 0.6rem 0.6rem;
+    border: 1px solid var(--clr5);
+    background-color: var(--clr3);
+
+}
+
+.control-box .font-align-and-size {
+    cursor: pointer;
+    border-radius: 0.6rem 0.6rem 0rem 0rem;
+    border-bottom: 1px solid var(--clr5);
+    background-color: var(--clr3);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+}
+
+.control-box .font-align-and-size .font-selector {
+    color: var(--clr4);
+    border: 1px solid var(--clr5);
+    align-content: center;
+    width: 160px;
+    height: 22px;
+    margin-bottom: 5px;
+}
+
+.control-box .font-align-and-size .edit-list-2>li {
+    /* margin-inline-start: 20px; */
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px;
+
+}
+
+.control-box .font-align-and-size .edit-list-2>*:not(:last-child) {
+    margin-inline-end: 10px;
+}
+
+.control-box .font-align-and-size .edit-list-2> :first-child {
+    margin-inline-start: 10px;
+}
+
+.control-box .font-align-and-size .edit-list-2>a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    cursor: pointer;
+}
+
+
+
+/* color pickers  */
+.control-box .font-align-and-size .edit-list-2>li input {
+    cursor: pointer;
+    padding: 0;
+    width: 150%;
+    height: 150%;
+    margin: -25%;
+    /* align-items: flex-end; */
+}
+
+.round-color {
+    overflow: hidden;
+    width: 1.7em;
+    height: 1.7em;
+    /* optional formatting below here */
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px 0px grey;
+    margin: 2px;
+}
+
+.control-box .text-on-canvas {
+    margin-top: 0px;
+}
+
+
+.control-box .text-on-canvas .add-text {
+    /* width: 486px; */
+    /* width: 84%; */
+    border: 0px solid var(--clr5);
+    border-radius: 0 0 0.6rem 0.6rem;
+    height: 66px;
+    margin: 0px;
+    padding: 25px;
+    font-size: 1.1875em;
+    outline: none;
+}

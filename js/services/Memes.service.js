@@ -3,78 +3,24 @@ var gKeayword = ''
 var gMemes = []
 var gKeywordSearchCountMap = {}
 
-var gImgs = [{ id: 1,
-               url: 'imgs/1.jpg',
-               keywords: ["funny", 'car']
-             },
-             { id: 2,
-                url: 'imgs/2.jpg',
-                keywords: ["funny", 'cat']
-              },
-             { id: 3,
-                url: 'imgs/3.jpg',
-                keywords: ['funny', 'car']
-              },
-             { id: 4,
-                url: 'imgs/4.jpg',
-                keywords: ['funny', 'cat']
-              },
-             { id: 5,
-                url: 'imgs/5.jpg',
-                keywords: ['funny', 'cat']
-              },
-             { id: 6,
-                url: 'imgs/6.jpg',
-                keywords: ['funny', 'cat']
-              },
-             { id: 7,
-                url: 'imgs/7.jpg',
-                keywords: ['funny', 'cat']
-              },
-             { id: 8,
-                url: 'imgs/8.jpg',
-                keywords: ['funny', 'cat']
-              },
-             { id: 9,
-                url: 'imgs/9.jpg',
-                keywords: ['funny', 'cat']
-              },
-             { id: 10,
-                url: 'imgs/10.jpg',
-                keywords: ['funny', 'cat']
-              },
-             { id: 11,
-                url: 'imgs/11.jpg',
-                keywords: ['funny', 'cat']
-              },
-             { id: 12,
-                url: 'imgs/12.jpg',
-                keywords: ['funny', 'cat']
-              },
-             { id: 13,
-                url: 'imgs/13.jpg',
-                keywords: ['funny', 'cat']
-              },
-             { id: 14,
-                url: 'imgs/14.jpg',
-                keywords: ['funny', 'cat']
-              },
-             { id: 15,
-                url: 'imgs/15.jpg',
-                keywords: ['funny', 'cat']
-              },
-             { id: 16,
-                url: 'imgs/16.jpg',
-                keywords: ['funny', 'cat']
-              },
-              { id: 17,
-                url: 'imgs/17.jpg',
-                keywords: ['funny', 'cat']
-              },
-              { id: 18,
-                url: 'imgs/18.jpg',
-                keywords: ['funny', 'cat']
-              },
+var gImgs = [{ id: 1, url: 'imgs/1.jpg',keywords: ['funny', 'politics','celebrities']},
+             { id: 2, url: 'imgs/2.jpg', keywords: ['emotions', 'dog','animals']},
+             { id: 3, url: 'imgs/3.jpg', keywords: ['baby', 'dog', 'emotions','animals']},
+             { id: 4, url: 'imgs/4.jpg', keywords: ['emoions', 'cat', 'animals']},
+             { id: 5, url: 'imgs/5.jpg', keywords: ['baby','funny',]},
+             { id: 6, url: 'imgs/6.jpg', keywords: ['celebrities','funny']},
+             { id: 7, url: 'imgs/7.jpg', keywords: ['baby','funny']},
+             { id: 8, url: 'imgs/8.jpg', keywords: ['celebrities','funny','movies']},
+             { id: 9, url: 'imgs/9.jpg', keywords: ['baby','funny',]},
+             { id: 10,url: 'imgs/10.jpg',keywords: ['celebrities','funny','politics']},
+             { id: 11,url: 'imgs/11.jpg',keywords: ['emotions', 'sport','celebrities']},
+             { id: 12,url: 'imgs/12.jpg',keywords: ['funny','emotions','celebrities']},
+             { id: 13,url: 'imgs/13.jpg',keywords: ['funny','emotions','celebrities']},
+             { id: 14,url: 'imgs/14.jpg',keywords: ['emotions','celebrities','movies']},
+             { id: 15,url: 'imgs/15.jpg',keywords: ['funny', 'politics','celebrities']},
+             { id: 16,url: 'imgs/16.jpg',keywords: ['funny','emotions','celebrities','movies']},
+             { id: 17,url: 'imgs/17.jpg',keywords: ['funny', 'politics','celebrities']},
+             { id: 18,url: 'imgs/18.jpg',keywords: ['animation', 'movies']},
             ];
 
 var gMeme = {
@@ -98,9 +44,6 @@ var gMeme = {
 setKeywordsMap() 
 // _createMemes()
 
-console.log(gMemes)
-console.log(gKeywordSearchCountMap)  // need to do by the search
-
 function setKeywordsMap() {
     gImgs.forEach(elem => elem.keywords.forEach(keyWord => { 
     const keyWordCount = gKeywordSearchCountMap[keyWord]
@@ -118,7 +61,7 @@ function countWordApperances(txt){
   var word = ''
   var wordCount = 0
 
-  for (var i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i++) {
       if (str.charAt(i) === ' '){
           wordCount = wordsMap[word]
           wordsMap[word] = wordCount ? wordCount + 1 : 1
@@ -140,17 +83,13 @@ return images
 }
 
 function getMemesForDisplay(){
-  // debugger
-  loadFromStorage(STORAGE_KEY )
+  gMemes = loadFromStorage(STORAGE_KEY )
   console.log(gMemes)
   // const images = gMemes.filter(meme => gImgs.find(imge => imge.id ===  meme.selectedImgId) )
   const images = gImgs.filter(image => gMemes.find(meme => meme.selectedImgId === image.id))
-  console.log(images)
-  console.log('images', images)
   return images
   }
   
-
 // function for the model
 function createMeme(imgId) {
     return {
@@ -169,7 +108,7 @@ function getImgById(imgId){
     const image = gImgs.find(img => img.id === imgId )
     return image
 }
-
+//not in use
 function _createMemes() {
   var memes = loadFromStorage(STORAGE_KEY)
   // Nothing in storage - generate demo data
@@ -202,9 +141,8 @@ function updateMeme(selectedMeme) {
   meme.selectedLineIdx = selectedMeme.selectedLineIdx
   meme.lines = selectedMeme.lines
   _saveMemesToStorage(STORAGE_KEY, gMemes)
-  return book
+  return meme
 }
-
 
 function _saveMemesToStorage() {
   saveToStorage(STORAGE_KEY, gMemes)

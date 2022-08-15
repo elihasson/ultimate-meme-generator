@@ -1,0 +1,63 @@
+/* gallery */
+.gallery-layout {
+    background-color: var(--clr2);
+    margin-top: 0px;
+}
+
+.search-box {
+    /* height: 80px; */
+    padding-top: 30px;
+    margin-bottom: 5px;
+}
+
+.search-box .filter-meme-search {
+    margin: 0px 20px 5px 20px;
+    width: 1400px;
+    height: 40px;
+    border-radius: 1.3em;
+    color: #989898;
+    border: 1px solid var(--clr5);
+    font-size: 1.1875em;
+}
+
+/* grid */
+/* Images shall appear square even if they are at other aspect ratio (clipped) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+    margin: 25px;
+}
+
+/* card  */
+.card {
+    background-color: var(--clr2);
+    /* color: white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    border-radius: 2em;
+    /* min-width: 400px; */
+    /* min-height: 150px; */
+}
+
+
+.card-image {
+    /* width: 100%; */
+    max-width: 100%;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.card-image:hover {
+    box-shadow: 0px 8px 12px 2px var(--clr4);
+    transition: 0.6s;
+}
+
+.meme-creation-area {
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+
+}

@@ -1,0 +1,91 @@
+
+
+
+.fa::before {
+    font-family: fa;
+}
+.fa.align-center::before {
+    content:"\f037";
+}
+
+.fa.align-left::before {
+    content:"\f036";
+}
+
+.fa.align-right::before {
+    content:"\f038";
+}
+
+.fa.fontsize::before {
+    content:"\f031";
+}
+
+.fa.arrowleft::before {
+    content:"\f060";
+}
+
+.fa.pipe::before {
+    content:"\7c";
+}
+
+.fa.arrowdown::before {
+    content:"\f175";
+}
+
+.fa.arrowup::before {
+    content:"\f176";
+}
+
+.fa.trash::before {
+    content:"\f2ed";
+}
+
+
+.flex {
+    display: flex;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex.align-left {
+    align-items: flex-start;
+
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* hide element  */
+.display-none {
+    display: none;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.btn {
+    border-radius: 2em;
+    background-color: var(--clr1);
+    color: var(--clr2);
+    text-transform: uppercase;
+    border-width: 0px;
+    outline: none;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 10px
+}
+
+.btn:hover {
+    box-shadow: 0px 2px 4px 1px var(--clr4);
+    transition: 0.6s;
+}

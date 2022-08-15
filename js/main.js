@@ -13,7 +13,7 @@ function init() {
     renderImages()
     gImageElement = gGalleryLayout.querySelector('.card-1')
     gSelectedImage = getImgById(1)
-    document.querySelector('.upload-area').add('display-none')
+    // document.querySelector('.upload-area').add('display-none')
 
 
     // gElCanvas = document.querySelector('#main-canvas')
@@ -28,10 +28,6 @@ function displayGallery() {
     renderImages()
 }
 
-function toggleMenu() {
-    document.body.classList.toggle('menu-toggle')
-    
-}
 
 function displayMemes() {
     gSelectedMeme = null
